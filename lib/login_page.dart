@@ -125,12 +125,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
             ),
             isNameEmpty
                 ? const Padding(
-                  padding: EdgeInsets.only(left: 50),
-                  child: Text(
+                    padding: EdgeInsets.only(left: 50),
+                    child: Text(
                       "You must write your full name",
                       style: TextStyle(color: Colors.red),
                     ),
-                )
+                  )
                 : const SizedBox.shrink(),
             const SizedBox(height: 18),
             Padding(
@@ -165,12 +165,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
             ),
             isPasswordEmpty
                 ? const Padding(
-                  padding: EdgeInsets.only(left: 50),
-                  child: Text(
+                    padding: EdgeInsets.only(left: 50),
+                    child: Text(
                       "You must write your password",
                       style: TextStyle(color: Colors.red),
                     ),
-                )
+                  )
                 : const SizedBox.shrink(),
             const SizedBox(height: 18),
             const Padding(
@@ -268,18 +268,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 ),
               ),
               child: Row(
-                children: [
-                  const SizedBox(width: 28),
-                  Container(
+                children: const [
+                  SizedBox(width: 28),
+                  SizedBox(
                     width: 23,
                     height: 23,
-                    child: const Image(
+                    child: Image(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/logo_google.png'),
                     ),
                   ),
-                  const SizedBox(width: 28),
-                  const Text(
+                  SizedBox(width: 28),
+                  Text(
                     'Log In with Google',
                     style: TextStyle(
                       color: Color.fromARGB(160, 0, 0, 0),

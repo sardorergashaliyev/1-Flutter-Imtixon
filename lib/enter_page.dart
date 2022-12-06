@@ -23,7 +23,7 @@ class MyEnterPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => MyLoginPage()),
+                  MaterialPageRoute(builder: (_) => const MyLoginPage()),
                 );
               },
               child: Container(

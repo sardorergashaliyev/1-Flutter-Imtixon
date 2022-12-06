@@ -18,6 +18,7 @@ class FakePage extends StatefulWidget {
 
 class _FakePageState extends State<FakePage> {
   bool isLiked = false;
+  int priceAdd = 0;
 
   int counter = 0;
 
@@ -47,8 +48,17 @@ class _FakePageState extends State<FakePage> {
                   const SizedBox(
                     width: 20,
                   ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(Icons.arrow_back_ios),
+                  ),
                   Container(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                    ),
+                    margin: const EdgeInsets.only(top: 5),
                     height: 60,
                     width: 150,
                     decoration: const BoxDecoration(
@@ -77,7 +87,7 @@ class _FakePageState extends State<FakePage> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 140),
+                  const SizedBox(width: 90),
                   GestureDetector(
                     onTap: () {
                       isLiked = !isLiked;
@@ -93,10 +103,8 @@ class _FakePageState extends State<FakePage> {
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        !isLiked
-                            ? Icons.favorite_border
-                            : Icons.favorite,
-                        color: Color(0xffFE7B5F),
+                        !isLiked ? Icons.favorite_border : Icons.favorite,
+                        color: const Color(0xffFE7B5F),
                       ),
                     ),
                   )
@@ -402,7 +410,10 @@ class _FakePageState extends State<FakePage> {
                                   style: TextStyle(
                                       fontSize: 17, color: Color(0xff5E5959)),
                                 ),
-                                Icon(Icons.arrow_downward)
+                                Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 20,
+                                )
                               ],
                             ),
                           ),
@@ -416,7 +427,10 @@ class _FakePageState extends State<FakePage> {
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 50),
-                          child: Icon(Icons.edit),
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.grey,
+                          ),
                         ),
                       ],
                     ),
@@ -451,23 +465,30 @@ class _FakePageState extends State<FakePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(right: 22, left: 12),
+                      margin: const EdgeInsets.only(right: 22, left: 12),
                       width: 375,
                       height: 58,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(28)),
                           color: Color(0xffFF785B)),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            '₹${widget.price}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 21,
+                          const SizedBox(width: 30),
+                          SizedBox(
+                            width: 60,
+                            height: 50,
+                            child: Center(
+                              child: Text(
+                                '₹$priceAdd',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 21,
+                                ),
+                              ),
                             ),
                           ),
+                          const SizedBox(width: 30),
                           Container(
                             width: 128,
                             height: 34,
@@ -486,8 +507,14 @@ class _FakePageState extends State<FakePage> {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      counter -= 1;
-                                      setState(() {});
+                                      if (counter != 0) {
+                                        counter -= 1;
+                                        priceAdd -= widget.price;
+
+                                        setState(() {});
+                                      } else {
+                                        setState(() {});
+                                      }
                                     },
                                     child: const Icon(
                                       Icons.minimize,
@@ -497,13 +524,14 @@ class _FakePageState extends State<FakePage> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10),
                                     child: Text(
-                                      '${counter}',
+                                      '$counter',
                                       style: const TextStyle(fontSize: 20),
                                     ),
                                   ),
                                   InkWell(
                                     onTap: () {
                                       counter += 1;
+                                      priceAdd += widget.price;
                                       setState(() {});
                                     },
                                     child: const Padding(
@@ -519,6 +547,7 @@ class _FakePageState extends State<FakePage> {
                               ),
                             ),
                           ),
+                          const SizedBox(width: 30),
                           Container(
                             width: 31,
                             height: 31,

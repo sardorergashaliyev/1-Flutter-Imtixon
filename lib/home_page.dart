@@ -1160,10 +1160,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: const AssetImage('assets/burgerking.png'),
                 ),
               ),
-              Container(
+              const SizedBox(
                 height: 53,
                 width: 300,
-                child: const Image(
+                child: Image(
                   image: AssetImage('assets/view.png'),
                 ),
               )

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:imtixon/home_page.dart';
-import 'package:imtixon/login_page.dart';
 
 class MySignUpPage extends StatelessWidget {
   const MySignUpPage({super.key});
@@ -56,7 +55,7 @@ class MySignUpPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -111,8 +110,7 @@ class MySignUpPage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: const Image(
-                    image: NetworkImage(
-                        ''),
+                    image: NetworkImage(''),
                   ),
                 ),
               ],
@@ -232,7 +230,7 @@ class MySignUpPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => MyHomePage()),
+                      MaterialPageRoute(builder: (_) => const MyHomePage()),
                     );
                   },
                   child: Container(
@@ -262,7 +260,7 @@ class MySignUpPage extends StatelessWidget {
 Member? Login''',
                   style: TextStyle(color: Color(0xffB3B3B3), fontSize: 16),
                 ),
-                SizedBox(width: 27)
+                const SizedBox(width: 27)
               ],
             ),
             const SizedBox(height: 10),
