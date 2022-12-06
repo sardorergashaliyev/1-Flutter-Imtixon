@@ -369,14 +369,16 @@ class _FakePageState extends State<FakePage> {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 16, top: 50),
+                          padding: const EdgeInsets.only(left: 10, top: 50),
                           child: Container(
                             width: 295,
                             height: 34,
                             decoration: const BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
+                              color: Color(0xffF1F1F1),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
@@ -387,7 +389,8 @@ class _FakePageState extends State<FakePage> {
                                 ),
                                 Text(
                                   'User 1',
-                                  style: TextStyle(fontSize: 17),
+                                  style: TextStyle(
+                                      fontSize: 17, color: Color(0xff5E5959)),
                                 ),
                                 Icon(Icons.arrow_downward)
                               ],
@@ -415,10 +418,10 @@ class _FakePageState extends State<FakePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 22, horizontal: 32),
+                      padding: const EdgeInsets.only(
+                          bottom: 22, top: 22, left: 12, right: 22),
                       child: Container(
-                        width: 361,
+                        width: 341,
                         height: 30,
                         decoration: BoxDecoration(
                             borderRadius:
@@ -438,6 +441,7 @@ class _FakePageState extends State<FakePage> {
                       ),
                     ),
                     Container(
+                      margin: EdgeInsets.only(right: 22, left: 12),
                       width: 375,
                       height: 58,
                       decoration: const BoxDecoration(
@@ -467,7 +471,8 @@ class _FakePageState extends State<FakePage> {
                               padding: const EdgeInsets.only(),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   InkWell(
                                     onTap: () {

@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<dynamic> price1 = [
     200,
     200,
-    200,
+    100,
   ];
 
   List<dynamic> photos2 = [
@@ -64,9 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
     '   Hyderabadi, North Indian, etc',
   ];
   List<dynamic> price2 = [
-    200,
-    200,
-    200,
+    125,
+    125,
+    125,
   ];
 
   List<dynamic> photos3 = [
@@ -84,8 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
     'Burger King Combo',
   ];
   List<dynamic> price3 = [
-    ' ₹125',
-    ' ₹125',
+    125,
+    125,
   ];
 
   List<dynamic> photos4 = [
@@ -113,9 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
     'Halal Food',
   ];
   List<dynamic> price4 = [
-    ' ₹200',
-    ' ₹200',
-    ' ₹200',
+    200,
+    200,
+    200,
   ];
 
   @override
@@ -712,7 +712,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         itemBuilder: ((context, index) {
                           return GestureDetector(
                             onTap: () {
-                              Navigator.push( (con),
+                              Navigator.push(
+                                (con),
                                 MaterialPageRoute(
                                   builder: (_) => FakePage(
                                     place: place1[index],
@@ -824,15 +825,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                child: SizedBox(
-                  height: 250,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 3,
-                    itemBuilder: ((context, index) {
-                      return Container(
+              SizedBox(
+                height: 250,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: ((context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => FakePage(
+                              image: photos2[index],
+                              price: price2[index],
+                              place: place2[index],
+                              name: titles2[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
                         height: 254,
                         width: 190,
                         margin: const EdgeInsets.only(left: 20),
@@ -865,7 +878,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               children: [
                                 Text(
-                                  '${price2[index]}',
+                                  '₹${price2[index]}',
                                   style: const TextStyle(
                                     color: Color(0xffF88922),
                                     fontWeight: FontWeight.w600,
@@ -884,9 +897,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             const SizedBox(height: 10)
                           ],
                         ),
-                      );
-                    }),
-                  ),
+                      ),
+                    );
+                  }),
                 ),
               ),
               const SizedBox(height: 20),
@@ -938,79 +951,77 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                child: SizedBox(
-                  height: 150,
-                  width: 350,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 2,
-                    itemBuilder: ((context, index) {
-                      return Container(
-                        height: 138,
-                        width: 294,
-                        margin: const EdgeInsets.only(left: 20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: const Color(0xffC4C4C4)),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(13)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(top: 14, left: 16),
-                              height: 53,
-                              width: 53,
-                              child: photos3[index],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(
-                                  height: 18,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const SizedBox(width: 9),
-                                    Text(
-                                      titles3[index],
-                                      style: const TextStyle(
-                                        color: Color(0xff333333),
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+              SizedBox(
+                height: 150,
+                width: 350,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 2,
+                  itemBuilder: ((context, index) {
+                    return Container(
+                      height: 138,
+                      width: 294,
+                      margin: const EdgeInsets.only(left: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: const Color(0xffC4C4C4)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(13)),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(top: 14, left: 16),
+                            height: 53,
+                            width: 53,
+                            child: photos3[index],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 18,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const SizedBox(width: 9),
+                                  Text(
+                                    titles3[index],
+                                    style: const TextStyle(
+                                      color: Color(0xff333333),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600,
                                     ),
-                                    Text(
-                                      price3[index],
-                                      style: const TextStyle(
-                                        color: Color(0xff333333),
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 10),
-                                  child: Text('Yesterday 3pm'),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const Text(
-                                    '1 Kacchi biriyani · 1 chilli onion... ')
-                              ],
-                            )
-                          ],
-                        ),
-                      );
-                    }),
-                  ),
+                                  ),
+                                  Text(
+                                    price3[index],
+                                    style: const TextStyle(
+                                      color: Color(0xff333333),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text('Yesterday 3pm'),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              const Text(
+                                  '1 Kacchi biriyani · 1 chilli onion... ')
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  }),
                 ),
               ),
               const SizedBox(height: 20),
@@ -1062,15 +1073,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                child: SizedBox(
-                  height: 250,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 3,
-                    itemBuilder: ((context, index) {
-                      return Container(
+              SizedBox(
+                height: 250,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: ((context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => FakePage(
+                              image: photos4[index],
+                              price: price4[index],
+                              place: place4[index],
+                              name: titles4[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
                         height: 254,
                         width: 190,
                         margin: const EdgeInsets.only(left: 20),
@@ -1122,9 +1145,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             const SizedBox(height: 10)
                           ],
                         ),
-                      );
-                    }),
-                  ),
+                      ),
+                    );
+                  }),
                 ),
               ),
               const SizedBox(height: 20),
