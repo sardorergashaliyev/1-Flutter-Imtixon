@@ -17,6 +17,8 @@ class FakePage extends StatefulWidget {
 }
 
 class _FakePageState extends State<FakePage> {
+  bool isLiked = false;
+
   int counter = 0;
 
   @override
@@ -76,18 +78,26 @@ class _FakePageState extends State<FakePage> {
                     ),
                   ),
                   const SizedBox(width: 140),
-                  Container(
-                    height: 35,
-                    width: 35,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: const Color(0xffFF785B),
+                  GestureDetector(
+                    onTap: () {
+                      isLiked = !isLiked;
+                      setState(() {});
+                    },
+                    child: Container(
+                      height: 35,
+                      width: 35,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color(0xffFF785B),
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.favorite_border,
-                      color: Color(0xffFE7B5F),
+                      child: Icon(
+                        !isLiked
+                            ? Icons.favorite_border
+                            : Icons.favorite,
+                        color: Color(0xffFE7B5F),
+                      ),
                     ),
                   )
                 ],
