@@ -519,13 +519,14 @@ class _FakePageState extends State<FakePage> {
                                     child: const Icon(
                                       Icons.minimize,
                                       size: 25,
+                                      color: Colors.white,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10),
                                     child: Text(
                                       '$counter',
-                                      style: const TextStyle(fontSize: 20),
+                                      style: const TextStyle(fontSize: 20, color: Colors.white),
                                     ),
                                   ),
                                   InkWell(
@@ -539,7 +540,7 @@ class _FakePageState extends State<FakePage> {
                                           EdgeInsets.only(top: 10, left: 5),
                                       child: Text(
                                         '+',
-                                        style: TextStyle(fontSize: 20),
+                                        style: TextStyle(fontSize: 20, color: Colors.white),
                                       ),
                                     ),
                                   ),
@@ -548,17 +549,73 @@ class _FakePageState extends State<FakePage> {
                             ),
                           ),
                           const SizedBox(width: 30),
-                          Container(
-                            width: 31,
-                            height: 31,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              if (priceAdd != 0) {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Dialog(
+                                        backgroundColor: Colors.transparent,
+                                        child: Container(
+                                          width: 310,
+                                          height: 377,
+                                          decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(30))),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                height: 100,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.5),
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                30))),
+                                                child: const Center(
+                                                    child: Text(
+                                                  "👍",
+                                                  style:
+                                                      TextStyle(fontSize: 40),
+                                                )),
+                                              ),
+                                              const SizedBox(height: 32),
+                                              const Text(
+                                                "Accepted",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                              } else {
+                                setState(() {});
+                              }
+                            },
+                            child: Container(
+                              width: 31,
+                              height: 31,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: const Center(
+                                  child: Icon(
+                                Icons.shopping_basket_outlined,
+                              )),
                             ),
-                            child: const Center(
-                                child: Icon(
-                              Icons.shopping_basket_outlined,
-                            )),
                           )
                         ],
                       ),
