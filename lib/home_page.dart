@@ -998,7 +998,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   Text(
-                                    price3[index],
+                                    '₹${price3[index]}',
                                     style: const TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 17,
@@ -1126,7 +1126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               children: [
                                 Text(
-                                  price4[index],
+                                  '₹${price4[index]}',
                                   style: const TextStyle(
                                     color: Color(0xffF88922),
                                     fontWeight: FontWeight.w600,
