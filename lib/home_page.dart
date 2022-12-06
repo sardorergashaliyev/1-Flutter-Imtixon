@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imtixon/fake_page.dart';
 
+import 'model.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -9,113 +11,109 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<dynamic> photos1 = [
-    Image.asset(
-      'assets/1coffe.png',
-      fit: BoxFit.cover,
+  List<Model> data = [
+    Model(
+        titles: "Cappuccino",
+        price: 200,
+        photo: Image.asset(
+          'assets/1coffe.png',
+          fit: BoxFit.cover,
+        ),
+        place: "Suhani Restaurant"),
+    Model(
+        titles: 'Egg and cheese sandwich',
+        price: 200,
+        photo: Image.asset(
+          'assets/1tuxum.png',
+          fit: BoxFit.cover,
+        ),
+        place: 'Mehfil\'s Place'),
+    Model(
+      titles: '   Strawberry Icecream',
+      price: 200,
+      photo: Image.asset(
+        'assets/1musqaymoq.png',
+        fit: BoxFit.cover,
+      ),
+      place: '   Cream Stone',
     ),
-    Image.asset(
-      'assets/1tuxum.png',
-      fit: BoxFit.cover,
-    ),
-    Image.asset(
-      'assets/1musqaymoq.png',
-      fit: BoxFit.cover,
-    ),
-  ];
-  List<dynamic> titles1 = [
-    '   Cappuccino',
-    '   Egg and cheese      sandwich',
-    '   Strawberry Icecream',
-  ];
-  List<dynamic> place1 = [
-    '   Suhani Restaurant',
-    '   Mehfil\'s Place',
-    '   Cream Stone',
-  ];
-  List<dynamic> price1 = [
-    200,
-    200,
-    100,
   ];
 
-  List<dynamic> photos2 = [
-    Image.asset(
-      'assets/2salat.png',
-      fit: BoxFit.cover,
+  List<Model> saveData = [
+    Model(
+        titles: "Wow! Momo",
+        price: 125,
+        photo: Image.asset(
+          'assets/2salat.png',
+          fit: BoxFit.cover,
+        ),
+        place: '   Fast food, Chinese'),
+    Model(
+        titles: '   Istah - Shawarma',
+        price: 125,
+        photo: Image.asset(
+          'assets/2tuxum.png',
+          fit: BoxFit.cover,
+        ),
+        place: '   Arabian, Lebanese'),
+    Model(
+      titles: '   Biryanis and more',
+      price: 200,
+      photo: Image.asset(
+        'assets/2tuxum.png',
+        fit: BoxFit.cover,
+      ),
+      place: '   Hyderabadi, North Indian, etc',
     ),
-    Image.asset(
-      'assets/2tuxum.png',
-      fit: BoxFit.cover,
-    ),
-    Image.asset(
-      'assets/2salat.png',
-      fit: BoxFit.cover,
-    ),
-  ];
-  List<dynamic> titles2 = [
-    '   Wow! Momo',
-    '   Istah - Shawarma',
-    '   Biryanis and more',
-  ];
-  List<dynamic> place2 = [
-    '   Fast food, Chinese',
-    '   Arabian, Lebanese',
-    '   Hyderabadi, North Indian, etc',
-  ];
-  List<dynamic> price2 = [
-    125,
-    125,
-    125,
   ];
 
-  List<dynamic> photos3 = [
-    Image.asset(
-      'assets/kfc.png',
-      fit: BoxFit.cover,
-    ),
-    Image.asset(
-      'assets/burger.png',
-      fit: BoxFit.cover,
-    ),
-  ];
-  List<dynamic> titles3 = [
-    'Kcf Combo',
-    'Burger King Combo',
-  ];
-  List<dynamic> price3 = [
-    125,
-    125,
+  List<Model> orderData = [
+    Model(
+        titles: 'Kcf Combo',
+        price: 125,
+        photo: Image.asset(
+          'assets/kfc.png',
+          fit: BoxFit.cover,
+        ),
+        place: ''),
+    Model(
+        titles: 'Burger King Combo',
+        price: 125,
+        photo: Image.asset(
+          'assets/burger.png',
+          fit: BoxFit.cover,
+        ),
+        place: '')
   ];
 
-  List<dynamic> photos4 = [
-    Image.asset(
-      'assets/kfc4.png',
-      fit: BoxFit.cover,
+  List<Model> popularData = [
+    Model(
+      titles: 'KFC',
+      price: 200,
+      photo: Image.asset(
+        'assets/kfc4.png',
+        fit: BoxFit.cover,
+      ),
+      place: 'Desi, Italian, +3 more',
     ),
-    Image.asset(
-      'assets/kfc4.2.png',
-      fit: BoxFit.cover,
+    Model(
+      titles: 'Burger King',
+      price: 200,
+      photo: Image.asset(
+        'assets/kfc4.2.png',
+        fit: BoxFit.cover,
+      ),
+      place: 'Burgers, Bevarages',
     ),
-    Image.asset(
-      'assets/2salat.png',
-      fit: BoxFit.cover,
-    ),
-  ];
-  List<dynamic> titles4 = [
-    'KFC',
-    'Burger King',
-    'Paradise Restaurant',
-  ];
-  List<dynamic> place4 = [
-    'Desi, Italian, +3 more',
-    'Burgers, Bevarages',
-    'Halal Food',
-  ];
-  List<dynamic> price4 = [
-    200,
-    200,
-    200,
+    Model(
+      titles: 'Paradise Restaurant',
+      price: 200,
+      photo: Image.asset(
+        'assets/2salat.png',
+        fit: BoxFit.cover,
+      ),
+      place: 'Halal Food',
+    )
   ];
 
   @override
@@ -708,7 +706,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        itemCount: 3,
+                        itemCount: data.length,
                         itemBuilder: ((context, index) {
                           return GestureDetector(
                             onTap: () {
@@ -716,10 +714,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 (con),
                                 MaterialPageRoute(
                                   builder: (_) => FakePage(
-                                    place: place1[index],
-                                    image: photos1[index],
-                                    name: titles1[index],
-                                    price: price1[index],
+                                    place: data[index].place,
+                                    image: data[index].photo,
+                                    name: data[index].titles,
+                                    price: data[index].price,
                                   ),
                                 ),
                               );
@@ -736,9 +734,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  photos1[index],
+                                  data[index].photo,
                                   Text(
-                                    titles1[index],
+                                    data[index].titles,
                                     style: const TextStyle(
                                       color: Color(0xff333333),
                                       fontWeight: FontWeight.w600,
@@ -747,7 +745,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    place1[index],
+                                    data[index].place,
                                     style: const TextStyle(
                                       color: Color(0xff333333),
                                       fontWeight: FontWeight.w300,
@@ -756,7 +754,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   const Spacer(),
                                   Text(
-                                    '₹${price1[index]}',
+                                    '₹${data[index].price}',
                                     style: const TextStyle(
                                       color: Color(0xffF88922),
                                       fontWeight: FontWeight.w600,
@@ -837,10 +835,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => FakePage(
-                              image: photos2[index],
-                              price: price2[index],
-                              place: place2[index],
-                              name: titles2[index],
+                              image: saveData[index].photo,
+                              price: saveData[index].price,
+                              place: saveData[index].place,
+                              name: saveData[index].titles,
                             ),
                           ),
                         );
@@ -856,9 +854,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            photos2[index],
+                            saveData[index].photo,
                             Text(
-                              titles2[index],
+                              saveData[index].titles,
                               style: const TextStyle(
                                 color: Color(0xff333333),
                                 fontWeight: FontWeight.w600,
@@ -867,7 +865,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              place2[index],
+                              saveData[index].place,
                               style: const TextStyle(
                                 color: Color(0xff333333),
                                 fontWeight: FontWeight.w300,
@@ -878,7 +876,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               children: [
                                 Text(
-                                  '₹${price2[index]}',
+                                  '₹${saveData[index].price}',
                                   style: const TextStyle(
                                     color: Color(0xffF88922),
                                     fontWeight: FontWeight.w600,
@@ -976,7 +974,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             margin: const EdgeInsets.only(top: 14, left: 16),
                             height: 53,
                             width: 53,
-                            child: photos3[index],
+                            child: orderData[index].photo,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -990,7 +988,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: [
                                   const SizedBox(width: 9),
                                   Text(
-                                    titles3[index],
+                                    orderData[index].titles,
                                     style: const TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 17,
@@ -998,7 +996,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   Text(
-                                    '₹${price3[index]}',
+                                    '₹${orderData[index].price}',
                                     style: const TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: 17,
@@ -1085,10 +1083,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => FakePage(
-                              image: photos4[index],
-                              price: price4[index],
-                              place: place4[index],
-                              name: titles4[index],
+                              image: popularData[index].photo,
+                              price: popularData[index].price,
+                              place: popularData[index].place,
+                              name: popularData[index].titles,
                             ),
                           ),
                         );
@@ -1104,9 +1102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            photos4[index],
+                            popularData[index].photo,
                             Text(
-                              titles4[index],
+                              popularData[index].titles,
                               style: const TextStyle(
                                 color: Color(0xff333333),
                                 fontWeight: FontWeight.w600,
@@ -1115,7 +1113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              place4[index],
+                              popularData[index].place,
                               style: const TextStyle(
                                 color: Color(0xff333333),
                                 fontWeight: FontWeight.w300,
@@ -1126,7 +1124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               children: [
                                 Text(
-                                  '₹${price4[index]}',
+                                  '₹${popularData[index].price}',
                                   style: const TextStyle(
                                     color: Color(0xffF88922),
                                     fontWeight: FontWeight.w600,
